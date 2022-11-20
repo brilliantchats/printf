@@ -15,16 +15,18 @@ int format_convertor(char specifier, va_list args)
 
 	if (specifier == 'c' || specifier == 's' || specifier == '%')
 		number_of_char += char_str_conversion(specifier, args);
-	if (specifier == 'b')
+	else if (specifier == 'b')
 		number_of_char += unsigned_to_binary(va_arg(args, unsigned int));
-	if (specifier == 'u')
+	else if (specifier == 'u')
 		number_of_char += unsigned_convertor(va_arg(args, unsigned int));
-	if (specifier == 'o')
+	else if (specifier == 'o')
 		number_of_char += octal_convertor(va_arg(args, unsigned int));
-	if (specifier == 'x')
+	else if (specifier == 'x')
 		number_of_char += hexa_convertor(va_arg(args, unsigned int));
-	if (specifier == 'X')
+	else if (specifier == 'X')
 		number_of_char += heXa_convertor(va_arg(args, unsigned int));
+	else if (specifier == 'd' || 'i')
+		number_of_char += decimal_int_convertor(va_arg(args, int));
 	return (number_of_char);
 }
 /**

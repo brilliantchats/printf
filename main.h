@@ -12,5 +12,6 @@ int unsigned_convertor(unsigned int num);
 int octal_convertor(unsigned int num);
 int hexa_convertor(unsigned int num);
 int heXa_convertor(unsigned int num);
+int decimal_int_convertor(int num);
 
 #endif /* MAIN_H */
