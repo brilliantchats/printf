@@ -11,6 +11,7 @@
 int string_conversion(char *str)
 {
 	int i = 0, num = 0; /* num is numbr of char */
+
 	if (str == NULL)
 		str = "(null)";
 	while (str[i] != '\0')
