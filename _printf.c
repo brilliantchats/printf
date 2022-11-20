@@ -19,6 +19,12 @@ int format_convertor(char specifier, va_list args)
 		number_of_char += unsigned_to_binary(va_arg(args, unsigned int));
 	if (specifier == 'u')
 		number_of_char += unsigned_convertor(va_arg(args, unsigned int));
+	if (specifier == 'o')
+		number_of_char += octal_convertor(va_arg(args, unsigned int));
+	if (specifier == 'x')
+		number_of_char += hexa_convertor(va_arg(args, unsigned int));
+	if (specifier == 'X')
+		number_of_char += heXa_convertor(va_arg(args, unsigned int));
 	return (number_of_char);
 }
 /**
