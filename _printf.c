@@ -3,6 +3,22 @@
 #include <stdlib.h>
 #include <stdarg.h>
 /**
+ * format_convertor - Chooses which function to call for a specifier
+ * @specifier: Conversion specifier
+ * @args: list of variable argumets
+ *
+ * Return: number of characters printed
+ */
+int format_convertor(char specifier, va_list args)
+{
+	int number_of_char = 0;
+	if (specifier == 'c' || specifier == 's' || specifier == '%')
+		number_of_char += (char_str_conversion(specifier, args));
+	if (specifier == 'b')
+		number_of_char += (unsigned_to_binary(va_arg(args, unsigned int)));
+	return (number_of_char);
+}
+/**
  * char_str_conversion - Handles printing of char, str and %
  * @character: Conversion specifier
  * @args: list of variable arguments
@@ -47,12 +63,8 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			if (format[i + 1] == 'c' || format[i + 1] == 's'
-			|| format[i + 1] == '%')
-			{
-				num_char += char_str_conversion(format[i + 1], args);
-				i = i + 2;
-			}
+			num_char += format_convertor(format[i + 1], args);
+			i = i + 2;
 		}
 		else
 		{
