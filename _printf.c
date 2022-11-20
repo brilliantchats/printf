@@ -12,10 +12,13 @@
 int format_convertor(char specifier, va_list args)
 {
 	int number_of_char = 0;
+
 	if (specifier == 'c' || specifier == 's' || specifier == '%')
-		number_of_char += (char_str_conversion(specifier, args));
+		number_of_char += char_str_conversion(specifier, args);
 	if (specifier == 'b')
-		number_of_char += (unsigned_to_binary(va_arg(args, unsigned int)));
+		number_of_char += unsigned_to_binary(va_arg(args, unsigned int));
+	if (specifier == 'u')
+		number_of_char += unsigned_convertor(va_arg(args, unsigned int));
 	return (number_of_char);
 }
 /**

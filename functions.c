@@ -36,3 +36,37 @@ int unsigned_to_binary(unsigned int num)
 		print_char(binary_str[i] + '0');
 	return (len_of_binary);
 }
+/**
+ * unsigned_convertor - Handles u conversion for unsigned numbers
+ * @num: the unsigned number
+ *
+ * Return: the number of characters printed to standard output
+ */
+int unsigned_convertor(unsigned int num)
+{
+	int length = 0, i;
+	unsigned int num_cpy = num;
+	char *unsigned_str;
+
+	if (num < 10)
+	{
+		print_char(num + '0');
+		return (1);
+	}
+	while (num_cpy != 0)
+	{
+		num_cpy = num_cpy / 10;
+		length++;
+	}
+	unsigned_str = malloc(sizeof(char) * length);
+	if (unsigned_str == NULL)
+		return (0);
+	for (i = length - 1; i >= 0; i--)
+	{
+		unsigned_str[i] = ((num % 10) + '0');
+		num = num / 10;
+	}
+	for (i = 0; i < length; i++)
+		print_char(unsigned_str[i]);
+	return (length);
+}

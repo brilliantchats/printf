@@ -8,5 +8,6 @@ int string_conversion(char *str);
 int print_char(char c);
 int char_str_conversion(char character, va_list args);
 int unsigned_to_binary(unsigned int num);
+int unsigned_convertor(unsigned int num);
 
 #endif /* MAIN_H */
