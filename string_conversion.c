@@ -13,7 +13,7 @@ int string_conversion(char *str)
 	int i = 0, num = 0; /* num is numbr of char */
 
 	if (str == NULL)
-		str = "(null)";
+		exit(1);
 	while (str[i] != '\0')
 	{
 		num += print_char(str[i]);
