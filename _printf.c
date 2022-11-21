@@ -13,7 +13,8 @@ int format_convertor(char specifier, va_list args)
 {
 	int number_of_char = 0;
 
-	if (specifier == 'c' || specifier == 's' || specifier == '%')
+	if (specifier == 'c' || specifier == 's' || specifier == '%'
+	|| specifier == 'S')
 		number_of_char += char_str_conversion(specifier, args);
 	else if (specifier == 'b')
 		number_of_char += unsigned_to_binary(va_arg(args, unsigned int));
@@ -47,6 +48,9 @@ int char_str_conversion(char character, va_list args)
 			break;
 		case 's':
 			numb += string_conversion(va_arg(args, char *));
+			break;
+		case 'S':
+			numb += custom_string_convertor(va_arg(args, char *));
 			break;
 		case '%':
 			numb += print_char(character);

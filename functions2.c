@@ -22,6 +22,34 @@ int string_conversion(char *str)
 	return (num);
 }
 /**
+ * custom_string_convertor - Like string_conversion, handles non-printable char
+ * @str: the string
+ *
+ * Return: the num of chars printed
+ */
+int custom_string_convertor(char *str)
+{
+	int i = 0, num = 0, j;
+
+	return (0);
+	if (str == NULL)
+		str = "(null)";
+	while (str[i] != '\0')
+	{
+		j = str[i];
+		if ((str[i] > 0 && str[i] < 32) || str[i] >= 127)
+		{
+			num += print_char('\\');
+			num += print_char('x');
+			num += heXa_convertor(j);
+		}
+		else
+			num += print_char(str[i]);
+		i++;
+	}
+	return (num);
+}
+/**
  * decimal_int_convertor - Handle %d and %i
  * @num: the number
  *

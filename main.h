@@ -13,5 +13,6 @@ int octal_convertor(unsigned int num);
 int hexa_convertor(unsigned int num);
 int heXa_convertor(unsigned int num);
 int decimal_int_convertor(int num);
+int custom_string_convertor(char *str);
 
 #endif /* MAIN_H */
