@@ -29,22 +29,24 @@ int string_conversion(char *str)
  */
 int custom_string_convertor(char *str)
 {
-	int i = 0, num = 0, j;
+	int i = 0, num = 0;
+	char c;
 
-	return (0);
 	if (str == NULL)
 		str = "(null)";
 	while (str[i] != '\0')
 	{
-		j = str[i];
-		if ((str[i] > 0 && str[i] < 32) || str[i] >= 127)
+		c = str[i];
+		if (((int)str[i] > 0 && (int)str[i] < 32) || (int)str[i] >= 127)
 		{
 			num += print_char('\\');
 			num += print_char('x');
-			num += heXa_convertor(j);
+			if ((int)str[i] < 16)
+				num += print_char(0 + '0');
+			num += heXa_convertor((int)str[i]);
 		}
 		else
-			num += print_char(str[i]);
+			num += print_char(c);
 		i++;
 	}
 	return (num);
