@@ -94,3 +94,9 @@ int decimal_int_convertor(int num)
 	free(num_str);
 	return (length + sign);
 }
+/**
+ * pointer_conversion - Prints an address to standard output
+ * @num: the address
+ *
+ * Return: number of characters printed
+ */
